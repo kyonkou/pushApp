@@ -3,12 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'countdown_view.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+//TODO 導線はTOPのみとRanking（FIREBASE もしくは　spaBase?でランキングを構築しておいて、表示するだけ）
+class ResultScreen extends StatelessWidget {
+  final String resultValue;
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const ResultScreen({required this.resultValue, Key? key}) : super(key: key);
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 
 class PushApp extends StatelessWidget {
   const PushApp({Key? key}) : super(key: key);

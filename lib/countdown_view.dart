@@ -18,6 +18,7 @@ late BuildContext _context;
 
 class CountDownState extends State<CountDown> {
   int counter = 5;
+  final String strStart = "START!";
 
   @override
   void initState() {
@@ -25,7 +26,6 @@ class CountDownState extends State<CountDown> {
     _context = context;
     Timer.periodic(const Duration(seconds: 1), (Timer timer) {
       if (counter > 0) {
-
         setState(() {counter--;});
       } else {
         timer.cancel();
@@ -33,6 +33,14 @@ class CountDownState extends State<CountDown> {
             MaterialPageRoute(builder: (context) => const PushUpScreen()));
       }
     });
+  }
+
+  String changeViewText (){
+    if(counter.toString() == "0"){
+      return strStart;
+    } else {
+      return counter.toString();
+    }
   }
 
   @override
@@ -48,13 +56,13 @@ class CountDownState extends State<CountDown> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                counter.toString(),
+                changeViewText(),
                 textAlign: TextAlign.center,
                 style: GoogleFonts.goldman(
                   textStyle: const TextStyle(
                     color: Color.fromRGBO(128, 7, 18, 1),
                     // fontFamily: 'Goldman-Bold',
-                    fontSize: 100,
+                    fontSize: 90,
                     letterSpacing: 0,
                     fontWeight: FontWeight.bold,
                     height: 1,
